@@ -1,20 +1,33 @@
 clear all
 close all
 
-load('dataEEG.mat');
-
 M = 5001;
 
-%freq ech = 1000Hz
-%bruit1 = randn(1,M);
 temps = (1:M);
-%plot(temps, bruit1)
-
-var = 2; %ou 3;
+var = 2;
 moy = 0;
-bruit2 = sqrt(var)*randn(1,M)+moy;
+bruit = sqrt(var)*randn(1,M)+moy;
+
+% 3.2.1.1
+yint = zeros(1,M);
+total = 0;
+for m = 1:M
+    total = total + bruit(m);
+    yint(m) = total;
+end
+
+
+% 3.2.1.2
+L = 11;
+N = floor(M/L);
+
+
+for l = 1:11
+    bruit((((l-1)*N)+1):(l*N));
+end
 
 
 
-subplot(2,1,1); plot(temps, bruit2); xlim([20 775]); title('Représentation temporelle')
-subplot(2,1,2); spectrogram(bruit2, 256, 128, 'yaxis'); xlim([20 775]); title('Représentation temps-fréquence')
+
+
+
