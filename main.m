@@ -18,12 +18,11 @@ end
 
 
 % 3.2.1.2
-L = 11;
-N = floor(M/L);
+L = 49; % afin d'afficher pour N = 101
+N = 101; % floor(M/L);
 
-
-for l = 1:11
-    bruit((((l-1)*N)+1):(l*N));
+for l = 1:L
+    tendances_locales(l) = polyfit((((l-1)*N)+1):(l*N),bruit((((l-1)*N)+1):(l*N)),1);
 end
 
 
