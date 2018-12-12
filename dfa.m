@@ -12,7 +12,7 @@ nbIterations = 50;
 FNs = zeros(1,nbIterations);
 for i = 1:nbIterations
     
-    bruit = sqrt(var)*randn(1,M)+moy;
+    bruit = sqrt(var) * randn(1,M) + moy;
 
     for m = 1:M
         bruit = bruit - mean(bruit);
@@ -31,7 +31,7 @@ for i = 1:nbIterations
         tendances_locales_a = zeros(1,L);
         tendances_locales_b = zeros(1,L);
         for l = 1:L
-            tendance = polyfit( (((l-1)*N)+1):(l*N), yint((((l-1)*N)+1):(l*N)) , 1);
+            tendance = polyfit( (((l-1)*N)+1):(l*N) , yint((((l-1)*N)+1):(l*N)) , 1 );
             tendances_locales_a(l) = tendance(1);
             tendances_locales_b(l) = tendance(2);
         end
