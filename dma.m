@@ -40,31 +40,15 @@ for iteration = 1:nbIteration
 
     log_ensembleN = log(ensembleN);
     log_resultatsFN = log(resultatsFN);
+    %%% plot du log %%%
+    % plot(log_ensembleN,log_resultatsFN)
+    % title('Courbe des logs (DMA)'); xlabel('Log de l''ensemble des N'); ylabel('Log des résultats de FN');
     [a,b] = polyfit(log_ensembleN,log_resultatsFN,1);
     FNs(iteration) = a(1);    
 end
 
 meanFNs = mean(FNs)
 varFNs = (std2(FNs)).^2
-
-
-
-%calcul FN
-% sumL = 0;
-% for l = 1:L
-%     sumN = 0;
-%     for n = 1:N
-%         xl = tendances_locales_a(l) * (((l-1)*N)+n) + tendances_locales_b(l);
-%         sumN = sumN + (yint((l-1)*N+n) - xl).^2;
-%     end
-%     sumL = sumL + sumN;
-% end
-% 
-% FN = sqrt( (1/(L*N)) * sumL );
-
-
-
-
 
 
 % PLOTS

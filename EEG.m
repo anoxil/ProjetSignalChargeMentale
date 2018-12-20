@@ -24,6 +24,11 @@ for i_e = 1:2
 end
 %
 
+e1p1 = mean(alpha_e1(1,:))
+e1p2 = mean(alpha_e1(2,:))
+e2p1 = mean(alpha_e2(1,:))
+e2p2 = mean(alpha_e2(2,:))
+
 subplot(2,1,1);
 plot((1:5),alpha_e1(1,:),'-o',(1:5),alpha_e1(2,:),'-o')
 xlabel('Sujets');ylabel('Alphas de phase d''électrode'); legend('Alphas de phase 1 d''électrode 1','Alphas de phase 2 d''électrode 1');

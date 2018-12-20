@@ -54,6 +54,9 @@ for i = 1:nbIterations
 
     log_ensembleN = log(ensembleN);
     log_resultatsFN = log(resultatsFN);
+    %%% plot du log %%%
+    % plot(log_ensembleN,log_resultatsFN)
+    % title('Courbe des logs (DFA)'); xlabel('Log de l''ensemble des N'); ylabel('Log des résultats de FN');
     [a,b] = polyfit(log_ensembleN,log_resultatsFN,1);
     FNs(i) = a(1);
     
@@ -62,7 +65,6 @@ for i = 1:nbIterations
         % plot du bruit blanc
         figure
         plot((1:M),yint); title('Profil de yint pour un bruit blanc'); xlabel('M (nb échantillons)'); ylabel('yint (profil)');
-        %
         % plot de segmentation pour N=101
         figure
         hold on
@@ -71,10 +73,7 @@ for i = 1:nbIterations
             plot((((pente-1)*N)+1):(pente*N),(tendances_locales_a(pente)*((((pente-1)*N)+1):(pente*N))+tendances_locales_b(pente)),'Color',[1,0,0],'LineWidth',2)
             line([(pente*N) (pente*N)], [-80 80])
         end
-        %
     end
-    %
-    
 end
 
 meanFNs = mean(FNs)
